@@ -1,6 +1,6 @@
 absl-py==1.1.0
 alabaster==0.7.12
-anaconda-client==1.9.0
+anaconda-client
 anaconda-navigator==2.1.1
 anaconda-project==0.10.2
 anyio==2.2.0
