@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en" class="h-100">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.98.0">
+    <title>Blas Faimi | Flagged Users</title>
+
+    <link rel="canonical" href="https://getbootstrap.com/docs/5.2/examples/cover/">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css')}}">
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .b-example-divider {
+            height: 3rem;
+            background-color: rgba(0, 0, 0, .1);
+            border: solid rgba(0, 0, 0, .15);
+            border-width: 1px 0;
+            box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+        }
+
+        .b-example-vr {
+            flex-shrink: 0;
+            width: 1.5rem;
+            height: 100vh;
+        }
+
+        .bi {
+            vertical-align: -.125em;
+            fill: currentColor;
+        }
+
+        .nav-scroller {
+            position: relative;
+            z-index: 2;
+            height: 2.75rem;
+            overflow-y: hidden;
+        }
+
+        .nav-scroller .nav {
+            display: flex;
+            flex-wrap: nowrap;
+            padding-bottom: 1rem;
+            margin-top: -1px;
+            overflow-x: auto;
+            text-align: center;
+            white-space: nowrap;
+            -webkit-overflow-scrolling: touch;
+        }
+    </style>
+
+</head>
+
+<body class="d-flex vh-100 text-white bg-dark">
+    <div class="backdrop">
+        <div class="backdrop_top">
+            <div class="circle_top"></div>
+        </div>
+        <div class="backdrop_bottom">
+            <div class="circle_bottom__left"></div>
+            <div class="circle_bottom__right"></div>
+        </div>
+    </div>
+    <div class="cover-container d-flex w-100 h-100 p-3 flex-column justify-content-between">
+        <header>
+            <div>
+                <h3 class="float-md-start mb-0">Social Media Sentiment Analysis</h3>
+                <nav class="nav nav-masthead justify-content-center float-md-end">
+                    <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="/">Home</a>
+                    <a class="nav-link fw-bold py-1 px-0" aria-current="page"
+                        href="https://blasfaimi.herokuapp.com">Analyse</a>
+                    <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="/search">Search</a>
+                    <a class="nav-link fw-bold py-1 px-0" aria-current="page" href="/flagged">Flagged Users</a>
+                </nav>
+            </div>
+        </header>
+        <div class="heading">
+            <h1 class="heading m-3">Flagged Users</h1>
+        </div>
+        <div class="row overflow-auto h-100 p-3">
+            <div class="col">
+                <div class="tweets overflow-auto">
+                    <div class="accordion" style="background: none;" id="accordionExample">
+                        {% for user,tweets in users.items() %}
+                        <div class="accordion-item" style="background: none;">
+                            <h2 class="accordion-header" id="headingOne">
+                                <button class="accordion-button" style="background: none;" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#{{user}}" aria-expanded="true"
+                                    aria-controls="collapseOne">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#FF0000"
+                                        class="bi-exclamation-triangle m-2  mt-0" viewBox="0 0 16 16">
+                                        <path
+                                            d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z" />
+                                        <path
+                                            d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0zM7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995z" />
+                                    </svg>
+                                    <a class="lead fw-bold" href="{{'https://twitter.com/%s'%user}}"
+                                        style="text-decoration: none;">{{user}}</a>
+                                </button>
+                            </h2>
+                            <div id="{{user}}" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                                data-bs-parent="#accordionExample">
+                                <div class="accordion-body">
+                                    {%for tweet in tweets%}
+                                    <p class="text m-3">{{tweet}}</p>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="footer">
+            <div class="links">
+                <ul class="links_list">
+                    <li class="float-md-start">&copy 2022 Waste Brains</li>
+                </ul>
+            </div>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+            crossorigin="anonymous"></script>
+</body>
+
+</html>
