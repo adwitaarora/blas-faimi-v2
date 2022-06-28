@@ -8,7 +8,6 @@ from nltk.corpus import wordnet
 import string
 from nltk import pos_tag
 from nltk.corpus import stopwords
-from nltk.tokenize import WhitespaceTokenizer
 from nltk.stem import WordNetLemmatizer
 
 emoji_pattern = re.compile("["

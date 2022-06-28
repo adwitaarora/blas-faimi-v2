@@ -13,4 +13,6 @@ snowball_data
 rslp
 porter_test
 treebank
+pos_tag
 dependency_treebank
+WordNetLemmatizer
