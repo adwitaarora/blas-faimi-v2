@@ -1,0 +1,10 @@
+username,text,sentiment
+Vishal02626948,"Four people, including 3 ONGC employees, dead in Pawan Hans helicopter crash in Arabian Sea: Co official","{'neg': 0.368, 'neu': 0.632, 'pos': 0.0, 'compound': -0.7906}"
+Explorer_Yash,"What a tragic day! 4 including 3 ONGC employees, die after helicopter crashes in Arabian Sea 
+https://t.co/I3Q6gef9tj","{'neg': 0.578, 'neu': 0.422, 'pos': 0.0, 'compound': -0.8625}"
+JagranEnglish,"At least four people lose their lives after #ONGC helicopter with nine onboard fell into Arabian Sea
+
+https://t.co/KlIWJZzgb8","{'neg': 0.213, 'neu': 0.787, 'pos': 0.0, 'compound': -0.4019}"
+WIONews,"At least four died when a Pawan Hans helicopter with nine onboard, including two pilots, fell into the Arabian Sea
+
+https://t.co/u4inH9rlWs","{'neg': 0.231, 'neu': 0.769, 'pos': 0.0, 'compound': -0.5994}"

@@ -36,7 +36,7 @@ def isFlagged(username):
         if sentiment(cleantweet) == True:
             negativeTweets.append(tweet)
             count += 1
-    if count >= 1:
+    if count >= 2:
         return negativeTweets
     return []
 
